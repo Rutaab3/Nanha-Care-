@@ -28,6 +28,7 @@
             color: var(--dark-text);
             overflow-x: hidden;
             scroll-behavior: smooth;
+            padding-top: 70px;
         }
 
         h1, h2, h3, h4, h5 {
@@ -68,7 +69,6 @@
             transform: translateY(0);
         }
         
-        /* Delay classes for staggered animations */
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
@@ -79,6 +79,10 @@
             background: linear-gradient(135deg, var(--sky-blue), var(--baby-pink));
             padding: 15px 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         .navbar-brand {
@@ -167,79 +171,50 @@
             color: var(--sky-blue);
             font-weight: 700;
         }
-        
-        /* Sitemap Styles */
+
+        /* Sitemap Specific Styles */
         .sitemap-container {
-            padding: 40px 0;
-        }
-        
-        .sitemap-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .sitemap-list li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .sitemap-list li:before {
-            content: '\f105';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: var(--sky-blue);
-            font-size: 20px;
-        }
-        
-        .sitemap-list a {
-            color: var(--dark-text);
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 5px 0;
-        }
-        
-        .sitemap-list a:hover {
-            color: var(--sky-blue);
-            transform: translateX(5px);
-        }
-        
-        .sitemap-category {
-            margin-bottom: 40px;
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .sitemap-category h3 {
-            position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .sitemap-category h3:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: linear-gradient(to right, var(--sky-blue), var(--baby-pink));
-            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .cta-card {
-            background: linear-gradient(135deg, var(--sky-blue), var(--baby-pink));
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--sunshine-yellow);
-            position: relative;
+        .sitemap-category {
+            margin-bottom: 2.5rem;
+        }
+
+        .sitemap-category h3 {
+            color: #4A4A6A;
+            border-bottom: 1px solid var(--sky-blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .sitemap-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .sitemap-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+            background: rgba(167, 211, 242, 0.1);
+        }
+
+        .sitemap-links a:hover {
+            color: var(--sky-blue);
+            background: rgba(167, 211, 242, 0.2);
+        }
+
+        .sitemap-links i {
+            margin-right: 0.5rem;
+            color: var(--baby-pink);
         }
 
         .btn-primary {
@@ -258,7 +233,7 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 16px rgba(198, 243, 211, 0.4);
             color: #2c5a3a;
-        }        
+        }
 
         footer {
             background: linear-gradient(135deg, var(--sky-blue), var(--baby-pink));
@@ -401,7 +376,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 80%;
-            max-width: 800px;
+            max-width: 500px;
         }
         
         .close-modal {
@@ -427,134 +402,151 @@
         .btn-primary:focus,
         .btn-primary:active,
         .btn-primary:focus:active {
-         background-color: var(--mint-green) !important;
-         color: #5a4a2a !important;
-         box-shadow: 0 4px 12px rgba(255, 233, 127, 0.3) !important;
+            background-color: var(--mint-green) !important;
+            color: #5a4a2a !important;
+            box-shadow: 0 4px 12px rgba(255, 233, 127, 0.3) !important;
         }
 
         /* Tablet-specific fixes (1024px width) */
         @media (min-width: 992px) and (max-width: 1199.98px) {
-        .navbar-nav {
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-    
-        .nav-item {
-            margin: 0 8px 8px 0;
-        }
+            .navbar-nav {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
         
-        .btn-nav {
-            margin-left: 0 !important;
-            margin-top: 0;
+            .nav-item {
+                margin: 0 8px 8px 0;
+            }
+            
+            .btn-nav {
+                margin-left: 0 !important;
+                margin-top: 0;
+            }
+            
+            .navbar-brand img {
+                height: 45px;
+            }
+            
+            .nav-link {
+                font-size: 15px;
+                padding: 6px 0;
+            }
         }
-        
-        .navbar-brand img {
-            height: 45px; /* Slightly smaller logo */
-        }
-        
-        .nav-link {
-            font-size: 15px; /* Slightly smaller font */
-            padding: 6px 0;
-        }
-    }
 
         /* Ensure button stays properly aligned */
         .btn-nav {
             white-space: nowrap;
             padding: 10px 20px;
         }
+
+        @media (max-width: 768px) {
+            .sitemap-links {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <img src="./images/logo4.png" alt="NanhaCare Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="babysitters.html">Babysitters</a></li>
-                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQs</a></li>
-                <li class="nav-item ms-lg-3">
-                    <a class="btn btn-primary btn-nav" href="pricing.html">
-                        <i class="fas fa-crown me-2"></i>Pricing
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Sitemap Section -->
-<div class="scroll-reveal delay-1">
-    <section id="sitemap" class="py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="section-title">NanhaCare <span class="highlight">Sitemap</span></h2>
-                <p class="lead">Navigate our website with ease</p>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/logo4.png" alt="NanhaCare Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="babysitters.html">Babysitters</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQs</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary btn-nav" href="pricing.html">
+                            <i class="fas fa-crown me-2"></i>Pricing
+                        </a>
+                    </li>
+                </ul>
             </div>
-            
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="sitemap-category scroll-reveal delay-2">
-                        <h3>Main Pages</h3>
-                        <ul class="sitemap-list">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="babysitters.html">Babysitters</a></li>
-                            <li><a href="training.html">Babysitter Training</a></li>
-                            <li><a href="products.html">Products</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="faq.html">FAQs</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                        </ul>
+        </div>
+    </nav>
+
+    <!-- Sitemap Content Section -->
+    <div class="scroll-reveal delay-1">
+        <section class="py-5">
+            <div class="container py-5">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">NanhaCare <span class="highlight">Sitemap</span></h2>
+                    <p class="lead">Navigate through our comprehensive childcare resources</p>
+                </div>
+                
+                <div class="sitemap-container">
+                    <!-- Main Pages -->
+                    <div class="sitemap-category">
+                        <h3>Main Navigation</h3>
+                        <div class="sitemap-links">
+                            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                            <a href="faq.html"><i class="fas fa-question-circle"></i> FAQs</a>
+                        </div>
                     </div>
                     
-                    <div class="sitemap-category scroll-reveal delay-3">
-                        <h3>Legal Pages</h3>
-                        <ul class="sitemap-list">
-                            <li><a href="termsofservice.html">Terms of Service</a></li>
-                            <li><a href="privacypolicy.html">Privacy Policy</a></li>
-                        </ul>
+                    <!-- Services -->
+                    <div class="sitemap-category">
+                        <h3>Services</h3>
+                        <div class="sitemap-links">
+                            <a href="babysitters.html"><i class="fas fa-user"></i> Babysitters</a>
+                            <a href="training.html"><i class="fas fa-chalkboard-teacher"></i> Babysitter Training</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Products -->
+                    <div class="sitemap-category">
+                        <h3>Products</h3>
+                        <div class="sitemap-links">
+                            <a href="products.html?category=all"><i class="fas fa-box"></i> All Products</a>
+                            <a href="products.html?category=newborn"><i class="fas fa-baby"></i> Newborns (0-12 Months)</a>
+                            <a href="products.html?category=toddler"><i class="fas fa-child"></i> Toddlers (1-3 Years)</a>
+                            <a href="products.html?category=preschool"><i class="fas fa-school"></i> Preschoolers (3-5 Years)</a>
+                            <a href="products.html?category=school"><i class="fas fa-graduation-cap"></i> School Age (5-10 Years)</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Resources -->
+                    <div class="sitemap-category">
+                        <h3>Resources</h3>
+                        <div class="sitemap-links">
+                            <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Legal -->
+                    <div class="sitemap-category">
+                        <h3>Legal</h3>
+                        <div class="sitemap-links">
+                            <a href="privacypolicy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                            <a href="termsofservice.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Pricing -->
+                    <div class="sitemap-category">
+                        <h3>Pricing</h3>
+                        <div class="sitemap-links">
+                            <a href="pricing.html"><i class="fas fa-crown"></i> Pricing</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
-
-<!-- CTA Section -->
-<section class="contact-cta py-5 scroll-reveal">
-  <div class="container">
-    <div class="cta-card">
-      <div class="row align-items-center">
-        <div class="col-lg-8">
-          <h3 class="text-white mb-3">Need Help Finding Something?</h3>
-          <p class="text-white mb-4 mb-lg-0">
-            Can't find what you're looking for? Our support team is here to help you.
-          </p>
-        </div>
-        <div class="col-lg-4 text-lg-end">
-          <a href="contact.html" class="btn btn-primary btn-lg">
-            <i class="fas fa-headset me-2"></i> Contact Support
-          </a>
-        </div>
-      </div>
+        </section>
     </div>
-  </div>
-</section>
 
-<!-- Footer -->
+    <!-- Footer -->
     <footer>
         <div class="container px-5">
             <div class="row gx-5">
@@ -609,101 +601,101 @@
         </div>
     </footer>
 
-<!-- Emergency Button -->
-<div class="emergency-btn" onclick="showEmergencyModal()">
-    <i class="fas fa-bell"></i>
-</div>
-
-<!-- Language Selector -->
-<div class="language-selector">
-    <div class="dropdown">
-        <button class="language-btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown">
-            <i class="fas fa-language"></i>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-            <li><a class="dropdown-item" href="#"><i class="fas fa-check me-2"></i> English</a></li>
-            <li><a class="dropdown-item" href="#">اردو</a></li>
-        </ul>
+    <!-- Emergency Button -->
+    <div class="emergency-btn" onclick="showEmergencyModal()">
+        <i class="fas fa-bell"></i>
     </div>
-</div>
 
-<!-- Emergency Modal -->
-<div id="emergencyModal" class="video-modal">
-    <div class="modal-content bg-light" style="max-width: 500px;">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div class="p-4 text-center">
-            <div class="icon-container mx-auto mb-4" style="width: 80px; height: 80px; background-color: #ff4d4d;">
-                <i class="fas fa-exclamation-triangle fa-2x text-white"></i>
-            </div>
-            <h4 class="mb-3">Emergency Contact</h4>
-            <p>Please select an emergency contact option:</p>
-            <div class="d-grid gap-3">
-                <button class="btn btn-danger py-3">
-                    <i class="fas fa-phone-alt me-2"></i> Call Emergency Services (1122)
-                </button>
-                <button class="btn btn-warning py-3">
-                    <i class="fas fa-user me-2"></i> Contact Selected Babysitter
-                </button>
-                <button class="btn btn-primary py-3">
-                    <i class="fas fa-headset me-2"></i> Contact NanhaCare Support
-                </button>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="dropdown">
+            <button class="language-btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown">
+                <i class="fas fa-language"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                <li><a class="dropdown-item" href="#"><i class="fas fa-check me-2"></i> English</a></li>
+                <li><a class="dropdown-item" href="#">اردو</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Emergency Modal -->
+    <div id="emergencyModal" class="video-modal">
+        <div class="modal-content bg-light">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="p-4 text-center">
+                <div class="icon-container mx-auto mb-4" style="width: 80px; height: 80px; background-color: #ff4d4d;">
+                    <i class="fas fa-exclamation-triangle fa-2x text-white"></i>
+                </div>
+                <h4 class="mb-3">Emergency Contact</h4>
+                <p>Please select an emergency contact option:</p>
+                <div class="d-grid gap-3">
+                    <button class="btn btn-danger py-3">
+                        <i class="fas fa-phone-alt me-2"></i> Call Emergency Services (1122)
+                    </button>
+                    <button class="btn btn-warning py-3">
+                        <i class="fas fa-user me-2"></i> Contact Selected Babysitter
+                    </button>
+                    <button class="btn btn-primary py-3">
+                        <i class="fas fa-headset me-2"></i> Contact NanhaCare Support
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Scroll Reveal Animation
-    function scrollReveal() {
-        const elements = document.querySelectorAll('.scroll-reveal');
-        const windowHeight = window.innerHeight;
-        const revealPoint = 150;
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll Reveal Animation
+        function scrollReveal() {
+            const elements = document.querySelectorAll('.scroll-reveal');
+            const windowHeight = window.innerHeight;
+            const revealPoint = 150;
 
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            if (elementTop < windowHeight - revealPoint) {
-                element.classList.add('active');
-            }
-        });
-    }
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
 
-    // Initialize scroll reveal on load and scroll
-    window.addEventListener('load', scrollReveal);
-    window.addEventListener('scroll', scrollReveal);
+        // Initialize scroll reveal on load and scroll
+        window.addEventListener('load', scrollReveal);
+        window.addEventListener('scroll', scrollReveal);
 
-    // Show emergency modal
-    function showEmergencyModal() {
-        const modal = document.getElementById('emergencyModal');
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
+        // Show emergency modal
+        function showEmergencyModal() {
+            const modal = document.getElementById('emergencyModal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
 
-    // Close modal
-    function closeModal() {
-        const modals = document.querySelectorAll('.video-modal');
-        modals.forEach(modal => {
-            modal.style.display = 'none';
-        });
-        document.body.style.overflow = 'auto';
-    }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-        const modals = document.querySelectorAll('.video-modal');
-        modals.forEach(modal => {
-            if (event.target == modal) {
+        // Close modal
+        function closeModal() {
+            const modals = document.querySelectorAll('.video-modal');
+            modals.forEach(modal => {
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
+            });
+            document.body.style.overflow = 'auto';
+        }
 
-    // Ensure page starts at top
-    window.addEventListener('load', function() {
-        window.scrollTo(0, 0);
-    });
-</script>
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.video-modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Ensure page starts at top
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+        });
+    </script>
 </body>
 </html>
